@@ -680,7 +680,7 @@ class Replay:
             self.unitsInGame[deadUnitTag].killerPlayerId = e['m_killerPlayerId']
             self.unitsInGame[deadUnitTag].positions[get_seconds_from_event_gameloop(e)] = [e['m_x'], e['m_y']]
 
-            if self.unitsInGame[deadUnitTag].is_plant_vehicle():
+            if self.unitsInGame[deadUnitTag].is_plant_vehicle() and len(self.unitsInGame[deadUnitTag].ownerList) > 0:
                 self.unitsInGame[deadUnitTag].ownerList[0][2] = self.unitsInGame[deadUnitTag].diedAt - \
                                                                 self.unitsInGame[deadUnitTag].ownerList[0][1]
 
